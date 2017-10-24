@@ -17,3 +17,6 @@ public class Main {
         //bool programmet skal afsluttes: "true"
     }
 }
+
+
+// MICHAEL WAS HERE!!!
