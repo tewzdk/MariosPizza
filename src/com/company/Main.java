@@ -20,3 +20,5 @@ public class Main {
 
 
 // MICHAEL WAS HERE!!!
+
+// Martin har set dette
