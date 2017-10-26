@@ -9,7 +9,7 @@ public class Ordreliste {
 
 
     //init ordrearraylist (kan gøres her pga. copy by reference)
-    private ArrayList<Ordre> ordreliste = new ArrayList<>();
+    private ArrayList<Ordrelinje> ordreliste = new ArrayList<>();
 
     public Ordreliste(){ }
 
@@ -132,14 +132,14 @@ public class Ordreliste {
 
         //ændrer noten til "Ingen.", hvis der ikke indtastes noget.
         if(note.equalsIgnoreCase("")){
-            note = "Ingen.";
+            note = "Ingen";
         }
 
-        //skaber objektet(Ordre) via den indsamlede data.
-        Ordre nyOrdre = new Ordre(pizza, kunde, note, localTime);
+        //skaber objektet(Ordrelinje) via den indsamlede data.
+        Ordrelinje nyOrdrelinje = new Ordrelinje(pizza, kunde, note, localTime);
 
         //tilføjer den nye ordre til arraylisten(ordreliste).
-        ordreliste.add(nyOrdre);
+        ordreliste.add(nyOrdrelinje);
         System.out.println("[Ordren er tilføjet]");
 
         //sortérer listen.

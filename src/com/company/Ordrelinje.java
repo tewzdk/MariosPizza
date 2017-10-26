@@ -2,7 +2,7 @@ package com.company;
 
 import java.time.LocalTime;
 
-public class Ordre {
+public class Ordrelinje {
     private String note;
 
     private LocalTime localTime;
@@ -13,7 +13,7 @@ public class Ordre {
     private Pizza pizza = new Pizza();
     private Kunde kunde = new Kunde();
 
-    public Ordre(Pizza pizza, Kunde kunde, String note, LocalTime localTime){
+    public Ordrelinje(Pizza pizza, Kunde kunde, String note, LocalTime localTime){
         this.pizza = pizza;
         this.kunde = kunde;
         this.localTime = localTime;
@@ -25,6 +25,6 @@ public class Ordre {
     @Override
     public String toString() {
         return (pizza + "\n" + kunde +
-                "\nBemærkninger: " + note + "\n" + "Afhentningstidspunkt: " + localTime + "\n");
+                "\nBemærkninger: " + note + ".\n" + "Afhentningstidspunkt: " + localTime + "\n");
     }
 }

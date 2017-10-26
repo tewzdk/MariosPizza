@@ -23,7 +23,7 @@ public class Main {
         }
     }
     public static int intSvar(){ //undgår exceptions, når brugeren indtaster forkert værdi
-        int intSvar = 0;
+        int intSvar = -1;
         int n = 0;
         for(int x=0;x<=n;x++) {
             try {
@@ -71,7 +71,7 @@ public class Main {
                 afslutProgram();
                 korrektSvar = true;
 
-            } else if (svar > 4){
+            } else if (svar == 0 || svar > 4){
                 System.out.println("Det indtastede valg (" + svar + ") eksisterer ikke.");
             }
         }
