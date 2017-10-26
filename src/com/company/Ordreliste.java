@@ -88,8 +88,6 @@ public class Ordreliste {
         //init menu
         Menu menu = new Menu();
 
-        //init bool
-        boolean korrektSvar = false;
 
         //find pizza
         System.out.println("Pizza #:");
@@ -97,22 +95,55 @@ public class Ordreliste {
         //init pizzaNummer variable
         int pizzaNummer = 0;
 
-        //While-løkke til at sikre korrekt svar.
-        while(!korrektSvar){
-            pizzaNummer = Main.intSvar();
+        ArrayList<Integer> pizzaerKundenØnsker = new ArrayList<>();
+        ArrayList<String> pizzaBemærkninger = new ArrayList<>();
 
-            if(pizzaNummer >= 1 && pizzaNummer <= menu.menuArrayList.size()){
-                korrektSvar = true;
+        //Bool & While-løkke for at skabe flere Ordrelinjer.
+        boolean kundenSkalHaveFlerePizzaer = true;
+        while(kundenSkalHaveFlerePizzaer) {
+            boolean korrektSvar = false;
+            boolean korrektSvar2 = false;
+
+            //while-løkke til at sikre korrekt svar.
+            while (!korrektSvar) {
+                pizzaNummer = Main.intSvar();
+
+                if (pizzaNummer >= 1 && pizzaNummer <= menu.menuArrayList.size()) {
+                    //opret note.
+                    System.out.println("Indtast yderligere bemærkninger (Tryk ENTER, hvis der ikke er nogen):");
+                    String note = Main.in.next();
+                    //ændrer noten til "Ingen.", hvis der ikke indtastes noget.
+                    if(note.equalsIgnoreCase("")){
+                        note = "Ingen";
+                    }
+                    pizzaBemærkninger.add(note);
+
+                    korrektSvar = true;/////////
+
+                } else if (pizzaNummer > menu.menuArrayList.size()) {
+                    System.out.println("Pizza #" + pizzaNummer + " eksisterer ikke.");
+                }
             }
-            else if(pizzaNummer > menu.menuArrayList.size()){
-                System.out.println("Pizza #" + pizzaNummer + " eksisterer ikke.");
+            pizzaerKundenØnsker.add(pizzaNummer);
+
+            //kundenSkalHaveFlerePizzaer-løkke
+            System.out.println("Ønsker kunden flere pizzaer?");
+            System.out.println("1. Ja");
+            System.out.println("2. Nej");
+
+            //while-løkke til at sikre korrekt svar (2).
+            while(!korrektSvar2) {
+                int svar = Main.intSvar();
+                if(svar == 1){
+                    System.out.println("Pizza #:");
+                    korrektSvar2 = true;
+                }
+                else if(svar == 2){
+                    korrektSvar2 = true;
+                    kundenSkalHaveFlerePizzaer = false;
+                }
             }
         }
-        //meget uelegant måde at skabe pizzaen fra arraylisten, men den letteste løsning jeg kunne regne ud.
-        Pizza pizza = new Pizza(menu.menuArrayList.get(pizzaNummer -1).getPizzaNavn(),
-                menu.menuArrayList.get(pizzaNummer -1).getPizzaNummer(),
-                menu.menuArrayList.get(pizzaNummer -1).getPizzaPris(),
-                menu.menuArrayList.get(pizzaNummer -1).getPizzaBeskrivelse());
 
         //opret kunde.
         System.out.println("Kundens navn:");
@@ -126,20 +157,21 @@ public class Ordreliste {
         String afhentningstidspunkt = Main.in.next();
         LocalTime localTime = LocalTime.parse(afhentningstidspunkt, DateTimeFormatter.ofPattern("HHmm"));
 
-        //opret note.
-        System.out.println("Indtast yderligere bemærkninger (Tryk ENTER, hvis der ikke er nogen):");
-        String note = Main.in.next();
+        for (int i = 0; i < pizzaerKundenØnsker.size(); i++) {
+            //meget uelegant måde at skabe pizzaen fra arraylisten, men den letteste løsning jeg kunne regne ud.
+            Pizza pizza = new Pizza(menu.menuArrayList.get(pizzaerKundenØnsker.get(i) -1).getPizzaNavn(),
+                    menu.menuArrayList.get(pizzaerKundenØnsker.get(i) -1).getPizzaNummer(),
+                    menu.menuArrayList.get(pizzaerKundenØnsker.get(i) -1).getPizzaPris(),
+                    menu.menuArrayList.get(pizzaerKundenØnsker.get(i) -1).getPizzaBeskrivelse());
+            String note = pizzaBemærkninger.get(i);
 
-        //ændrer noten til "Ingen.", hvis der ikke indtastes noget.
-        if(note.equalsIgnoreCase("")){
-            note = "Ingen";
+            //skaber objektet(Ordrelinje) via den indsamlede data.
+            Ordrelinje nyOrdrelinje = new Ordrelinje(pizza, kunde, note, localTime);
+
+            //tilføjer den nye ordre til arraylisten(ordreliste).
+            ordreliste.add(nyOrdrelinje);
+
         }
-
-        //skaber objektet(Ordrelinje) via den indsamlede data.
-        Ordrelinje nyOrdrelinje = new Ordrelinje(pizza, kunde, note, localTime);
-
-        //tilføjer den nye ordre til arraylisten(ordreliste).
-        ordreliste.add(nyOrdrelinje);
         System.out.println("[Ordren er tilføjet]");
 
         //sortérer listen.
@@ -212,6 +244,5 @@ public class Ordreliste {
             }
         }
     }
-
 
 }
