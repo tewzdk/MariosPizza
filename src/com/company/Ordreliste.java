@@ -76,7 +76,7 @@ public class Ordreliste {
                 //bryder løkken og vender direkte tilbage til mainFunktioner
                 korrektSvar = true;
             }
-            else if(svar > 5) {
+            else if(svar == 0 || svar > 5) {
                 System.out.println("Det indtastede valg (" + svar + ") eksisterer ikke.");
             }
 
@@ -149,12 +149,13 @@ public class Ordreliste {
         System.out.println("Kundens navn:");
         String kundensNavn = Main.in.next();
         System.out.println("Kundens telefonnummer:");
-        String kundensTlfnummer = Main.in.next();
+        String kundensTlfnummer = tlfnummerScan();
+
         Kunde kunde = new Kunde(kundensNavn, kundensTlfnummer);
 
         //Bestem afhentningstidspunkt via string => LocalTime (skal have en korrektsvarløkke!)
         System.out.println("Forventes færdig klokken:");
-        String afhentningstidspunkt = Main.in.next();
+        String afhentningstidspunkt = afhentningstidspunktScan();
         LocalTime localTime = LocalTime.parse(afhentningstidspunkt, DateTimeFormatter.ofPattern("HHmm"));
 
         for (int i = 0; i < pizzaerKundenØnsker.size(); i++) {
@@ -245,4 +246,63 @@ public class Ordreliste {
         }
     }
 
+    public String tlfnummerScan(){
+        boolean korrektSvar = false;
+        String kundensTlfnummer = "";
+        while(!korrektSvar) {
+            kundensTlfnummer = Main.in.next();
+
+            if(kundensTlfnummer.length() == 8 && kundensTlfnummer.matches("^[0-9]{1,8}$")){
+                korrektSvar = true;
+            }
+            else{
+                System.out.println("Telefonnummeret skal bestå af otte cifre.");
+            }
+        }
+        return kundensTlfnummer;
+    }
+    public String afhentningstidspunktScan(){
+        boolean korrektSvar = false;
+        String afhentningstidspunkt = "";
+        while(!korrektSvar){
+            afhentningstidspunkt = Main.in.next();
+
+            if(afhentningstidspunkt.length() == 4 && afhentningstidspunkt.matches("^[0-9]{1,4}$")){
+                int intTidspunkt = Integer.parseInt(afhentningstidspunkt);
+                if(intTidspunkt < 2400 && intTidspunkt >= 2300 ||
+                        intTidspunkt < 2260 && intTidspunkt >= 2200 ||
+                        intTidspunkt < 2160 && intTidspunkt >= 2100 ||
+                        intTidspunkt < 2060 && intTidspunkt >= 2000 ||
+                        intTidspunkt < 1960 && intTidspunkt >= 1900 ||
+                        intTidspunkt < 1860 && intTidspunkt >= 1800 ||
+                        intTidspunkt < 1760 && intTidspunkt >= 1700 ||
+                        intTidspunkt < 1660 && intTidspunkt >= 1600 ||
+                        intTidspunkt < 1560 && intTidspunkt >= 1500 ||
+                        intTidspunkt < 1460 && intTidspunkt >= 1400 ||
+                        intTidspunkt < 1360 && intTidspunkt >= 1300 ||
+                        intTidspunkt < 1260 && intTidspunkt >= 1200 ||
+                        intTidspunkt < 1160 && intTidspunkt >= 1100 ||
+                        intTidspunkt < 1060 && intTidspunkt >= 1000 ||
+                        intTidspunkt < 960 && intTidspunkt >= 900 ||
+                        intTidspunkt < 860 && intTidspunkt >= 800 ||
+                        intTidspunkt < 760 && intTidspunkt >= 700 ||
+                        intTidspunkt < 660 && intTidspunkt >= 600 ||
+                        intTidspunkt < 560 && intTidspunkt >= 500 ||
+                        intTidspunkt < 460 && intTidspunkt >= 400 ||
+                        intTidspunkt < 360 && intTidspunkt >= 300 ||
+                        intTidspunkt < 260 && intTidspunkt >= 200 ||
+                        intTidspunkt < 160 && intTidspunkt >= 100 ||
+                        intTidspunkt < 60 && intTidspunkt >= 0){
+                    korrektSvar = true;
+                }
+                else{
+                    System.out.println("Dette klokkeslæt (" + afhentningstidspunkt + ") eksisterer ikke.");
+                }
+            }
+            else{
+                System.out.println("Klokkeslættet må kun bestå af 4 cifre.");
+            }
+        }
+        return afhentningstidspunkt;
+    }
 }
