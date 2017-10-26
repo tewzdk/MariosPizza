@@ -4,16 +4,27 @@ import java.time.LocalTime;
 
 public class Ordre {
     private String note;
-    public String getNote() {
-        return note;
+
+    private LocalTime localTime;
+    public LocalTime getLocalTime() {
+        return localTime;
     }
-    public int afhentningstidspunkt; //vent lige lidt.
 
+    private Pizza pizza = new Pizza();
+    private Kunde kunde = new Kunde();
 
-
-    public Ordre(Menu menu, Kunde kunde, String note, LocalTime afhentningstidspunkt){
+    public Ordre(Pizza pizza, Kunde kunde, String note, LocalTime localTime){
+        this.pizza = pizza;
+        this.kunde = kunde;
+        this.localTime = localTime;
         this.note = note;
-        //this.afhentningstidspunkt = localtimeshizzle;
     }
     //Indeholder Pizza & Kunde, Bestillingstidspunkt, laver Afhentningstidspunkt, note
+
+    //override og formatering.
+    @Override
+    public String toString() {
+        return (pizza + "\n" + kunde +
+                "\nBemærkninger: " + note + "\n" + "Afhentningstidspunkt: " + localTime + "\n");
+    }
 }
