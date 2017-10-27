@@ -140,6 +140,10 @@ public class Ordreliste {
                     korrektSvar2 = true;
                     kundenSkalHaveFlerePizzaer = false;
                 }
+                else{
+                    System.out.println("Det indtastede valg (" + svar + ") eksisterer ikke.");
+
+                }
             }
         }
 
@@ -194,10 +198,9 @@ public class Ordreliste {
                 if (svar == 1) {
 
                     //vi skal formodentlig bruge den her int, hvis vi skal lave "Martins" datastruktur.
+                    //++ i array
                     int menuNummerFraOrdrelinje = ordreliste.get(0).getPizza().getPizzaNummer() - 1;
-
-                    //den lette metode
-                    ordrearkiv.tilfoejAfsluttetOrdre(ordreliste.get(0));
+                    ordrearkiv.ordrearkivListe[menuNummerFraOrdrelinje] ++;
 
                     ordreliste.remove(0);
                     System.out.println("[Ordren er afsluttet og gemt]");
@@ -210,8 +213,9 @@ public class Ordreliste {
                         int svar2 = Main.intSvar();
                         if (svar2 <= ordreliste.size() && svar2 > 0) {
 
-                            //den lette metode
-                            ordrearkiv.tilfoejAfsluttetOrdre(ordreliste.get(svar2 - 1));
+                            //++ i array
+                            int menuNummerFraOrdrelinje = ordreliste.get(svar2 - 1).getPizza().getPizzaNummer() - 1;
+                            ordrearkiv.ordrearkivListe[menuNummerFraOrdrelinje] ++;
 
                             ordreliste.remove(svar2 - 1);
                             System.out.println("[Ordren er afsluttet og gemt]");
@@ -230,8 +234,9 @@ public class Ordreliste {
             }
         }
         else {
-            //den lette metode
-            ordrearkiv.tilfoejAfsluttetOrdre(ordreliste.get(0));
+            //++ i array
+            int menuNummerFraOrdrelinje = ordreliste.get(0).getPizza().getPizzaNummer() - 1;
+            ordrearkiv.ordrearkivListe[menuNummerFraOrdrelinje] ++;
 
             ordreliste.remove(0);
             System.out.println("[Ordren er afsluttet og gemt]");
@@ -286,7 +291,7 @@ public class Ordreliste {
 
             if(afhentningstidspunkt.length() == 4 && afhentningstidspunkt.matches("^[0-9]{1,4}$")){
                 int intTidspunkt = Integer.parseInt(afhentningstidspunkt);
-                if(intTidspunkt < 2400 && intTidspunkt >= 2300 ||
+                if(intTidspunkt < 2360 && intTidspunkt >= 2300 ||
                         intTidspunkt < 2260 && intTidspunkt >= 2200 ||
                         intTidspunkt < 2160 && intTidspunkt >= 2100 ||
                         intTidspunkt < 2060 && intTidspunkt >= 2000 ||

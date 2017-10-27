@@ -17,6 +17,9 @@ public class Main {
         Ordrearkiv ordrearkiv = new Ordrearkiv();
         Menu menu = new Menu();
 
+        //init database
+        ordrearkiv.hentData();
+
         //kør program
         while(!programmetAfsluttes){
             mainFunktioner(ordreliste, ordrearkiv, menu);
@@ -80,6 +83,7 @@ public class Main {
     public static void afslutProgram(Ordrearkiv ordrearkiv){
         System.out.println();
         System.out.println("[Programmet afsluttes]");
+        ordrearkiv.gemData();
         in.close();
         programmetAfsluttes = true;
     }

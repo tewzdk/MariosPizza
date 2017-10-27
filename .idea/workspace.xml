@@ -19,10 +19,25 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="82" column="19" lean-forward="false" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
+            <state relative-caret-position="475">
+              <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#intSvar#0;class#Main#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ordreliste.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Ordreliste.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="293" column="37" lean-forward="false" selection-start-line="293" selection-start-column="37" selection-end-line="293" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#annullerOrdre#0;class#Ordreliste#0" expanded="false" />
+                <element signature="method#tlfnummerScan#0;class#Ordreliste#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -31,12 +46,25 @@
       <file leaf-file-name="Ordrearkiv.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Ordrearkiv.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
-                <element signature="e#431#432#0" expanded="true" />
-                <element signature="e#482#483#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#Ordrearkiv#0;class#Ordrearkiv#0" expanded="false" />
+                <element signature="method#print#0;class#Ordrearkiv#0" expanded="false" />
+                <element signature="method#hentData#0;class#Ordrearkiv#0" expanded="false" />
+                <element signature="method#gemData#0;class#Ordrearkiv#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ordrearkiv.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ordrearkiv.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -78,8 +106,8 @@
         <option value="$PROJECT_DIR$/src/com/company/Pizza.java" />
         <option value="$PROJECT_DIR$/src/com/company/Ordre.java" />
         <option value="$PROJECT_DIR$/src/com/company/Ordrelinje.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/Ordreliste.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/Ordrearkiv.java" />
       </list>
     </option>
@@ -90,11 +118,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="701" />
-    <option name="y" value="10" />
-    <option name="width" value="1547" />
-    <option name="height" value="824" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="232" />
+    <option name="width" value="1336" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -219,15 +246,15 @@
       <workItem from="1509006454404" duration="17840000" />
       <workItem from="1509028753230" duration="10839000" />
       <workItem from="1509051562727" duration="373000" />
-      <workItem from="1509092614950" duration="582000" />
+      <workItem from="1509092614950" duration="5124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84058000" />
+    <option name="totallyTimeSpent" value="88600000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -238,13 +265,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07836644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16777042" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16510417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22708334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -257,7 +285,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -302,37 +329,16 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/Ordrelinje.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Kunde.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="20" column="68" lean-forward="false" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Ordrearkiv.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Ordrearkiv#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#print#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#hentData#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#gemData#0;class#Ordrearkiv#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -343,6 +349,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#intSvar#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -373,7 +380,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#annullerOrdre#0;class#Ordreliste#0" expanded="false" />
             <element signature="method#tlfnummerScan#0;class#Ordreliste#0" expanded="false" />
-            <element signature="method#afhentningstidspunktScan#0;class#Ordreliste#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -399,8 +405,11 @@
         <state relative-caret-position="75">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Ordrearkiv#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#print#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#hentData#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#gemData#0;class#Ordrearkiv#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -411,6 +420,7 @@
           <caret line="58" column="38" lean-forward="false" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#intSvar#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -454,8 +464,11 @@
         <state relative-caret-position="75">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Ordrearkiv#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#print#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#hentData#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#gemData#0;class#Ordrearkiv#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -468,7 +481,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#annullerOrdre#0;class#Ordreliste#0" expanded="false" />
             <element signature="method#tlfnummerScan#0;class#Ordreliste#0" expanded="false" />
-            <element signature="method#afhentningstidspunktScan#0;class#Ordreliste#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -479,6 +491,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#intSvar#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -509,7 +522,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#annullerOrdre#0;class#Ordreliste#0" expanded="false" />
             <element signature="method#tlfnummerScan#0;class#Ordreliste#0" expanded="false" />
-            <element signature="method#afhentningstidspunktScan#0;class#Ordreliste#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -535,8 +547,11 @@
         <state relative-caret-position="75">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Ordrearkiv#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#print#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#hentData#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#gemData#0;class#Ordrearkiv#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -547,6 +562,7 @@
           <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#intSvar#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -569,7 +585,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#annullerOrdre#0;class#Ordreliste#0" expanded="false" />
             <element signature="method#tlfnummerScan#0;class#Ordreliste#0" expanded="false" />
-            <element signature="method#afhentningstidspunktScan#0;class#Ordreliste#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -595,8 +610,11 @@
         <state relative-caret-position="325">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Ordrearkiv#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#print#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#hentData#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#gemData#0;class#Ordrearkiv#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -615,6 +633,7 @@
           <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#intSvar#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -637,7 +656,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#annullerOrdre#0;class#Ordreliste#0" expanded="false" />
             <element signature="method#tlfnummerScan#0;class#Ordreliste#0" expanded="false" />
-            <element signature="method#afhentningstidspunktScan#0;class#Ordreliste#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -663,8 +681,11 @@
         <state relative-caret-position="325">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Ordrearkiv#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#print#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#hentData#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#gemData#0;class#Ordrearkiv#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -740,29 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Ordreliste.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#annullerOrdre#0;class#Ordreliste#0" expanded="false" />
-            <element signature="method#tlfnummerScan#0;class#Ordreliste#0" expanded="false" />
-            <element signature="method#afhentningstidspunktScan#0;class#Ordreliste#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="82" column="19" lean-forward="false" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Ordrelinje.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -771,13 +769,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/ordrearkiv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ordrearkiv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Ordreliste.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="293" column="37" lean-forward="false" selection-start-line="293" selection-start-column="37" selection-end-line="293" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#annullerOrdre#0;class#Ordreliste#0" expanded="false" />
+            <element signature="method#tlfnummerScan#0;class#Ordreliste#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ordrearkiv.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#intSvar#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Ordrearkiv.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Ordrearkiv#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#print#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#hentData#0;class#Ordrearkiv#0" expanded="false" />
+            <element signature="method#gemData#0;class#Ordrearkiv#0" expanded="false" />
           </folding>
         </state>
       </provider>
