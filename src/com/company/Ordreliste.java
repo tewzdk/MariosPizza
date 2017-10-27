@@ -74,7 +74,7 @@ public class Ordreliste {
                 //bryder løkken og vender direkte tilbage til mainFunktioner
                 korrektSvar = true;
             }
-            else if(svar == 0 || svar > 5) {
+            else if(svar <= 0 || svar > 5) {
                 System.out.println("Det indtastede valg (" + svar + ") eksisterer ikke.");
             }
 

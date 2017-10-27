@@ -6,8 +6,8 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Ordrearkiv {
-
-    int ordrearkivListe[] = new int[50];
+    final int ORDREARKIV_ARRAY_STØRRELSE = 50;
+    int ordrearkivListe[] = new int[ORDREARKIV_ARRAY_STØRRELSE];
 
     public Ordrearkiv() {
     }
@@ -50,12 +50,6 @@ public class Ordrearkiv {
         }
     }
 
-    public void print(){
-        for (int i = 0; i < ordrearkivListe.length; i++) {
-            System.out.println(ordrearkivListe[i]);
-        }
-    }
-
     public void alleSolgtePizzaer(Menu menu){
         boolean derErSolgtePizzaer = false;
         for (int i = 0; i < menu.menuArrayList.size(); i++) {
@@ -67,7 +61,7 @@ public class Ordrearkiv {
             System.out.println("Der er blevet solgt:");
         }
         else{
-            System.out.println("Der ikke solgt nogen pizzaer.");
+            System.out.println("Der er ikke blevet solgt nogen pizzaer siden ordrearkivet blev initialiseret.");
         }
         for (int i = 0; i < menu.menuArrayList.size(); i++) {
             if(ordrearkivListe[i] > 0) {
@@ -76,6 +70,7 @@ public class Ordrearkiv {
         }
         System.out.println();
     }
+
     public void mestSolgtePizza(Menu menu){
 
         int antalMestSolgtePizza = -1;
@@ -91,8 +86,12 @@ public class Ordrearkiv {
                 System.out.println(menu.menuArrayList.get(i));
             }
         }
+        if(antalMestSolgtePizza == 0){
+            System.out.println("Der er ikke blevet solgt nogen pizzaer siden ordrearkivet blev initialiseret.");
+        }
         System.out.println();
     }
+
     public void samletOmsætning(Menu menu){
         int samletOmsætning = 0;
         for (int i = 0; i < menu.menuArrayList.size(); i++) {
@@ -101,6 +100,7 @@ public class Ordrearkiv {
         System.out.println("Der er solgt pizzaer for " + samletOmsætning + " kr,-");
         System.out.println();
     }
+
     public void rensData(){
         System.out.println("Er du sikker på, at du vil slette databasen? (Tast: JA)");
         System.out.println("Har du ombestemt dig? (Tast: NEJ)");
@@ -137,6 +137,7 @@ public class Ordrearkiv {
             ordrearkivListe[i] = arkivScanner.nextInt();
         }
     }
+
     public void gemData() {
         try {
             PrintWriter outputStream = new PrintWriter(new File("ordrearkiv.txt"));
@@ -149,6 +150,9 @@ public class Ordrearkiv {
         }
     }
 
-
-
+    public void print(){
+        for (int i = 0; i < ordrearkivListe.length; i++) {
+            System.out.println(ordrearkivListe[i]);
+        }
+    }
 }
