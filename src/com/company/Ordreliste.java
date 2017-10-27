@@ -18,7 +18,7 @@ public class Ordreliste {
 
     }
 
-    public void funktioner(Ordrearkiv ordrearkiv){
+    public void funktioner(Ordrearkiv ordrearkiv, Menu menu) {
 
         //print funktioner
         System.out.println("Hvilken funktion ønsker du at benytte?");
@@ -42,7 +42,7 @@ public class Ordreliste {
 
             }
             else if (svar == 2){
-                tilfoejOrdre();
+                tilfoejOrdre(menu);
                 korrektSvar = true;
             }
             else if (svar == 3){
@@ -82,10 +82,7 @@ public class Ordreliste {
 
     }
 
-    public void tilfoejOrdre(){
-        //init menu
-        Menu menu = new Menu();
-
+    public void tilfoejOrdre(Menu menu) {
 
         //find pizza
         System.out.println("Pizza #:");
@@ -197,10 +194,10 @@ public class Ordreliste {
                 int svar = Main.intSvar();
                 if (svar == 1) {
 
-                    //vi skal formodentlig bruge den her int, hvis vi skal lave "Martins" datastruktur.
                     //++ i array
                     int menuNummerFraOrdrelinje = ordreliste.get(0).getPizza().getPizzaNummer() - 1;
                     ordrearkiv.ordrearkivListe[menuNummerFraOrdrelinje] ++;
+                    ordrearkiv.gemData();
 
                     ordreliste.remove(0);
                     System.out.println("[Ordren er afsluttet og gemt]");
@@ -216,6 +213,7 @@ public class Ordreliste {
                             //++ i array
                             int menuNummerFraOrdrelinje = ordreliste.get(svar2 - 1).getPizza().getPizzaNummer() - 1;
                             ordrearkiv.ordrearkivListe[menuNummerFraOrdrelinje] ++;
+                            ordrearkiv.gemData();
 
                             ordreliste.remove(svar2 - 1);
                             System.out.println("[Ordren er afsluttet og gemt]");
@@ -237,6 +235,7 @@ public class Ordreliste {
             //++ i array
             int menuNummerFraOrdrelinje = ordreliste.get(0).getPizza().getPizzaNummer() - 1;
             ordrearkiv.ordrearkivListe[menuNummerFraOrdrelinje] ++;
+            ordrearkiv.gemData();
 
             ordreliste.remove(0);
             System.out.println("[Ordren er afsluttet og gemt]");

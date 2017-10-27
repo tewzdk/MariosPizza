@@ -17,8 +17,34 @@ public class Main {
         Ordrearkiv ordrearkiv = new Ordrearkiv();
         Menu menu = new Menu();
 
-        //init database
-        ordrearkiv.hentData();
+
+        //indlæs databaser
+        ordrearkiv.laesData();
+        menu.laesMenu();
+
+        //Loading Screen
+        System.out.println("\n" +
+                "Marios Pizzaprogram!\n" +
+                "                        ___\n" +
+                "                        |  ~~--.\n" +
+                "                        |%=@%%/\n" +
+                "                        |o%%%/\n" +
+                "                     __ |%%o/\n" +
+                "               _,--~~ | |(_/ ._\n" +
+                "            ,/'  m%%%%| |o/ /  `\\.\n" +
+                "           /' m%%o(_)%| |/ /o%%m `\\\n" +
+                "         /' %%@=%o%%%o|   /(_)o%%% `\\\n" +
+                "        /  %o%%%%%=@%%|  /%%o%%@=%%  \\\n" +
+                "       |  (_)%(_)%%o%%| /%%%=@(_)%%%  |\n" +
+                "       | %%o%%%%o%%%(_|/%o%%o%%%%o%%% |\n" +
+                "       | %%o%(_)%%%%%o%(_)%%%o%%o%o%% |\n" +
+                "       |  (_)%%=@%(_)%o%o%%(_)%o(_)%  |\n" +
+                "        \\ ~%%o%%%%%o%o%=@%%o%%@%%o%~ /\n" +
+                "         \\. ~o%%(_)%%%o%(_)%%(_)o~ ,/\n" +
+                "           \\_ ~o%=@%(_)%o%%(_)%~ _/\n" +
+                "             `\\_~~o%%%o%%%%%~~_/'\n" +
+                "                `--..____,,--'" +
+                "\n");
 
         //kør program
         while(!programmetAfsluttes){
@@ -40,7 +66,7 @@ public class Main {
         return intSvar;
     }
 
-    public static void mainFunktioner(Ordreliste ordreliste, Ordrearkiv ordrearkiv, Menu menu){
+    public static void mainFunktioner(Ordreliste ordreliste, Ordrearkiv ordrearkiv, Menu menu) {
         //print mainMenu
         System.out.println("Hvad ønsker du at gøre?");
         System.out.println("1. Administrer ordre");
@@ -57,12 +83,12 @@ public class Main {
 
             if (svar == 1) {
                 //print ordrelisteMenu
-                ordreliste.funktioner(ordrearkiv);
+                ordreliste.funktioner(ordrearkiv, menu);
                 korrektSvar = true;
 
             } else if (svar == 2) {
                 //print ordrearkivMenu
-                ordrearkiv.funktioner();
+                ordrearkiv.funktioner(menu);
                 korrektSvar = true;
 
             } else if (svar == 3) {
@@ -71,7 +97,7 @@ public class Main {
                 korrektSvar = true;
 
             } else if (svar == 4) {
-                afslutProgram(ordrearkiv);
+                afslutProgram();
                 korrektSvar = true;
 
             } else if (svar == 0 || svar > 4){
@@ -80,10 +106,9 @@ public class Main {
         }
     }
 
-    public static void afslutProgram(Ordrearkiv ordrearkiv){
+    public static void afslutProgram(){
         System.out.println();
         System.out.println("[Programmet afsluttes]");
-        ordrearkiv.gemData();
         in.close();
         programmetAfsluttes = true;
     }
