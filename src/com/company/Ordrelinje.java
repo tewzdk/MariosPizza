@@ -3,6 +3,12 @@ package com.company;
 import java.time.LocalTime;
 
 public class Ordrelinje {
+
+    private Pizza pizza = new Pizza();
+    public Pizza getPizza() {
+        return pizza;
+    }
+
     private String note;
 
     private LocalTime localTime;
@@ -10,7 +16,6 @@ public class Ordrelinje {
         return localTime;
     }
 
-    private Pizza pizza = new Pizza();
     private Kunde kunde = new Kunde();
 
     public Ordrelinje(Pizza pizza, Kunde kunde, String note, LocalTime localTime){

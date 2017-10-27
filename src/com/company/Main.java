@@ -54,7 +54,7 @@ public class Main {
 
             if (svar == 1) {
                 //print ordrelisteMenu
-                ordreliste.funktioner();
+                ordreliste.funktioner(ordrearkiv);
                 korrektSvar = true;
 
             } else if (svar == 2) {
@@ -68,7 +68,7 @@ public class Main {
                 korrektSvar = true;
 
             } else if (svar == 4) {
-                afslutProgram();
+                afslutProgram(ordrearkiv);
                 korrektSvar = true;
 
             } else if (svar == 0 || svar > 4){
@@ -77,7 +77,7 @@ public class Main {
         }
     }
 
-    public static void afslutProgram(){
+    public static void afslutProgram(Ordrearkiv ordrearkiv){
         System.out.println();
         System.out.println("[Programmet afsluttes]");
         in.close();

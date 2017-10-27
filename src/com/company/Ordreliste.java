@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public class Ordreliste {
 
-
-
     //init ordrearraylist (kan gøres her pga. copy by reference)
     private ArrayList<Ordrelinje> ordreliste = new ArrayList<>();
 
@@ -20,7 +18,7 @@ public class Ordreliste {
 
     }
 
-    public void funktioner(){
+    public void funktioner(Ordrearkiv ordrearkiv){
 
         //print funktioner
         System.out.println("Hvilken funktion ønsker du at benytte?");
@@ -50,7 +48,7 @@ public class Ordreliste {
             else if (svar == 3){
                 //if-sætningen tjekker, om der eksisterer nogle ordre i listen.
                 if(ordreliste.size() > 0){
-                    afslutOrdre();
+                    afslutOrdre(ordrearkiv);
                     korrektSvar = true;
                 }
                 else{
@@ -95,8 +93,8 @@ public class Ordreliste {
         //init pizzaNummer variable
         int pizzaNummer = 0;
 
-        ArrayList<Integer> pizzaerKundenØnsker = new ArrayList<>();
-        ArrayList<String> pizzaBemærkninger = new ArrayList<>();
+        ArrayList<Integer> pizzaerKundenOensker = new ArrayList<>();
+        ArrayList<String> pizzaBemaerkninger = new ArrayList<>();
 
         //Bool & While-løkke for at skabe flere Ordrelinjer.
         boolean kundenSkalHaveFlerePizzaer = true;
@@ -116,7 +114,7 @@ public class Ordreliste {
                     if(note.equalsIgnoreCase("")){
                         note = "Ingen";
                     }
-                    pizzaBemærkninger.add(note);
+                    pizzaBemaerkninger.add(note);
 
                     korrektSvar = true;/////////
 
@@ -124,7 +122,7 @@ public class Ordreliste {
                     System.out.println("Pizza #" + pizzaNummer + " eksisterer ikke.");
                 }
             }
-            pizzaerKundenØnsker.add(pizzaNummer);
+            pizzaerKundenOensker.add(pizzaNummer);
 
             //kundenSkalHaveFlerePizzaer-løkke
             System.out.println("Ønsker kunden flere pizzaer?");
@@ -158,13 +156,13 @@ public class Ordreliste {
         String afhentningstidspunkt = afhentningstidspunktScan();
         LocalTime localTime = LocalTime.parse(afhentningstidspunkt, DateTimeFormatter.ofPattern("HHmm"));
 
-        for (int i = 0; i < pizzaerKundenØnsker.size(); i++) {
+        for (int i = 0; i < pizzaerKundenOensker.size(); i++) {
             //meget uelegant måde at skabe pizzaen fra arraylisten, men den letteste løsning jeg kunne regne ud.
-            Pizza pizza = new Pizza(menu.menuArrayList.get(pizzaerKundenØnsker.get(i) -1).getPizzaNavn(),
-                    menu.menuArrayList.get(pizzaerKundenØnsker.get(i) -1).getPizzaNummer(),
-                    menu.menuArrayList.get(pizzaerKundenØnsker.get(i) -1).getPizzaPris(),
-                    menu.menuArrayList.get(pizzaerKundenØnsker.get(i) -1).getPizzaBeskrivelse());
-            String note = pizzaBemærkninger.get(i);
+            Pizza pizza = new Pizza(menu.menuArrayList.get(pizzaerKundenOensker.get(i) -1).getPizzaNavn(),
+                    menu.menuArrayList.get(pizzaerKundenOensker.get(i) -1).getPizzaNummer(),
+                    menu.menuArrayList.get(pizzaerKundenOensker.get(i) -1).getPizzaPris(),
+                    menu.menuArrayList.get(pizzaerKundenOensker.get(i) -1).getPizzaBeskrivelse());
+            String note = pizzaBemaerkninger.get(i);
 
             //skaber objektet(Ordrelinje) via den indsamlede data.
             Ordrelinje nyOrdrelinje = new Ordrelinje(pizza, kunde, note, localTime);
@@ -182,16 +180,25 @@ public class Ordreliste {
         System.out.println();
     }
 
-    public void afslutOrdre(){ //mangler at gemme ordre i arkiv.
+    public void afslutOrdre(Ordrearkiv ordrearkiv){ //mangler at gemme ordre i arkiv.
+
         boolean korrektSvar = false;
         print();
         //if/else: Hvis der kun eksisterer én ordre, behøver brugeren ikke at træffe noget valg.
         if(ordreliste.size() > 1) {
             System.out.println("1. Afslut den øverste ordre fra køen");
             System.out.println("2. Afslut en anden ordre");
+            System.out.println("3. Gå tilbage");
             while (!korrektSvar) {
                 int svar = Main.intSvar();
                 if (svar == 1) {
+
+                    //vi skal formodentlig bruge den her int, hvis vi skal lave "Martins" datastruktur.
+                    int menuNummerFraOrdrelinje = ordreliste.get(0).getPizza().getPizzaNummer() - 1;
+
+                    //den lette metode
+                    ordrearkiv.tilfoejAfsluttetOrdre(ordreliste.get(0));
+
                     ordreliste.remove(0);
                     System.out.println("[Ordren er afsluttet og gemt]");
                     System.out.println();
@@ -202,6 +209,10 @@ public class Ordreliste {
                     while (!korrektSvar2) {
                         int svar2 = Main.intSvar();
                         if (svar2 <= ordreliste.size() && svar2 > 0) {
+
+                            //den lette metode
+                            ordrearkiv.tilfoejAfsluttetOrdre(ordreliste.get(svar2 - 1));
+
                             ordreliste.remove(svar2 - 1);
                             System.out.println("[Ordren er afsluttet og gemt]");
                             System.out.println();
@@ -211,12 +222,17 @@ public class Ordreliste {
                         }
                     }
                     korrektSvar = true;
+                } else if(svar == 3){
+                    korrektSvar = true;
                 } else {
                     System.out.println("Det indtastede valg (" + svar + ") eksisterer ikke.");
                 }
             }
         }
         else {
+            //den lette metode
+            ordrearkiv.tilfoejAfsluttetOrdre(ordreliste.get(0));
+
             ordreliste.remove(0);
             System.out.println("[Ordren er afsluttet og gemt]");
             System.out.println();
@@ -246,6 +262,7 @@ public class Ordreliste {
         }
     }
 
+    //Scannerfunktion
     public String tlfnummerScan(){
         boolean korrektSvar = false;
         String kundensTlfnummer = "";
