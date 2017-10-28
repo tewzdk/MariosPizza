@@ -71,7 +71,7 @@ public class Menu {
         print();
         System.out.println();
         System.out.println("Hvilken pizza ønsker du at redigere? (Tast nummeret på pizzaen)");
-        System.out.println("Tast '0', hvis du ikke ønsker at redigere en ordre.");
+        System.out.println("Tast '0', hvis du ikke ønsker at redigere en pizza.");
 
         while(!korrektSvar) {
             int pizzaNummer = Main.intSvar();
@@ -135,6 +135,9 @@ public class Menu {
                 }
                 korrektSvar = true;
             }
+            else if(pizzaNummer == 0){
+                korrektSvar = true;
+            }
             else{
                 System.out.println("Det indtastede valg (" + pizzaNummer + ") eksisterer ikke.");
             }
@@ -147,7 +150,7 @@ public class Menu {
 
         print();
         System.out.println("Hvilken pizza ønsker du at fjerne? (Tast nummeret på pizzaen)");
-        System.out.println("Tast '0', hvis du ikke ønsker at redigere en ordre.");
+        System.out.println("Tast '0', hvis du ikke ønsker at fjerne en pizza.");
 
         while(!korrektSvar){
             int pizzaNummer = Main.intSvar();
@@ -166,11 +169,14 @@ public class Menu {
                                 menuArrayList.get(i).setPizzaNummer(i);
                             }
                         }
+
+                        //fjerner ordren fra ordrearkivet
                         for (int i = 0; i < ordrearkiv.ordrearkivListe.length - 1; i++) {
-                            if(i >= pizzaNummer){
+                            if(i >= pizzaNummer -1){
                             ordrearkiv.ordrearkivListe[i] = ordrearkiv.ordrearkivListe[i+1];
                             }
                         }
+                        ordrearkiv.gemData();
 
                         menuArrayList.remove(pizzaNummer-1);
                         gemMenu();

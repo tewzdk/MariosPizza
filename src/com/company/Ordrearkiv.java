@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Ordrearkiv {
-    final int ORDREARKIV_ARRAY_STØRRELSE = 50;
+    final int ORDREARKIV_ARRAY_STØRRELSE = 101; //Så er der plads til 100 pizzaer.
     int ordrearkivListe[] = new int[ORDREARKIV_ARRAY_STØRRELSE];
 
     public Ordrearkiv() {
