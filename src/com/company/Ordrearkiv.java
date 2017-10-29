@@ -6,19 +6,23 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Ordrearkiv {
-    final int ORDREARKIV_ARRAY_STØRRELSE = 101; //Så er der plads til 100 pizzaer.
-    int ordrearkivListe[] = new int[ORDREARKIV_ARRAY_STØRRELSE];
 
+    //attributer
+    private final int ORDREARKIV_ARRAY_STOERRELSE = 101; //Så er der plads til 100 pizzaer. Sidste plads må ikke bruges.
+    int ordrearkivListe[] = new int[ORDREARKIV_ARRAY_STOERRELSE];
+
+    //constructor
     public Ordrearkiv() {
     }
 
+    //funktioner
     public void funktioner(Menu menu){
         //print arkivMenu
         System.out.println("Hvilken funktion ønsker du at benytte?");
         System.out.println("1. Vis alle solgte pizzaer");
         System.out.println("2. Vis mest solgte pizza(er)");
         System.out.println("3. Vis samlet omsætning");
-        System.out.println("4. Ryd databasen");
+        System.out.println("4. Ryd ordrearkivet");
         System.out.println("5. Gå tilbage");
 
         boolean korrektSvar = false;
@@ -34,7 +38,7 @@ public class Ordrearkiv {
                 korrektSvar = true;
             }
             else if(svar == 3){
-                samletOmsætning(menu);
+                samletOmsaetning(menu);
                 korrektSvar = true;
             }
             else if(svar == 4){
@@ -50,7 +54,7 @@ public class Ordrearkiv {
         }
     }
 
-    public void alleSolgtePizzaer(Menu menu){
+    private void alleSolgtePizzaer(Menu menu){
         boolean derErSolgtePizzaer = false;
         for (int i = 0; i < menu.menuArrayList.size(); i++) {
             if(ordrearkivListe[i]>0){
@@ -65,13 +69,14 @@ public class Ordrearkiv {
         }
         for (int i = 0; i < menu.menuArrayList.size(); i++) {
             if(ordrearkivListe[i] > 0) {
-                System.out.println(ordrearkivListe[i] + " " + menu.menuArrayList.get(i).getPizzaNavn());
+                System.out.println(ordrearkivListe[i] + " " + menu.menuArrayList.get(i).getPizzaNavn() +
+                " (" + menu.menuArrayList.get(i).getPizzaBeskrivelse() + ")");
             }
         }
         System.out.println();
     }
 
-    public void mestSolgtePizza(Menu menu){
+    private void mestSolgtePizza(Menu menu){
 
         int antalMestSolgtePizza = -1;
 
@@ -92,17 +97,18 @@ public class Ordrearkiv {
         System.out.println();
     }
 
-    public void samletOmsætning(Menu menu){
-        int samletOmsætning = 0;
+    private void samletOmsaetning(Menu menu){
+        int samletOmsaetning = 0;
         for (int i = 0; i < menu.menuArrayList.size(); i++) {
-            samletOmsætning = menu.menuArrayList.get(i).getPizzaPris() * ordrearkivListe[i] + samletOmsætning;
+            samletOmsaetning = menu.menuArrayList.get(i).getPizzaPris() * ordrearkivListe[i] + samletOmsaetning;
         }
-        System.out.println("Der er solgt pizzaer for " + samletOmsætning + " kr,-");
+        System.out.println("Der er solgt pizzaer for " + samletOmsaetning + " kr,-");
         System.out.println();
     }
 
-    public void rensData(){
-        System.out.println("Er du sikker på, at du vil slette databasen? (Tast: JA)");
+    //utility
+    private void rensData(){
+        System.out.println("Er du sikker på, at du vil slette alt data i ordrearkivet? (Tast: JA)");
         System.out.println("Har du ombestemt dig? (Tast: NEJ)");
         boolean korrektSvar = false;
         String svar;
@@ -114,6 +120,8 @@ public class Ordrearkiv {
                     ordrearkivListe[i] = 0;
                 }
                 gemData();
+                System.out.println("[Ordrearkivet er blevet ryddet]");
+                System.out.println();
                 korrektSvar = true;
             }
             else if(svar.equalsIgnoreCase("NEJ")){

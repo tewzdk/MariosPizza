@@ -3,21 +3,17 @@ package com.company;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Ordreliste {
 
     //init ordrearraylist (kan gøres her pga. copy by reference)
     private ArrayList<Ordrelinje> ordreliste = new ArrayList<>();
 
+    //constructor
     public Ordreliste(){ }
 
-    public void print(){
-        for (int i = 0; i < ordreliste.size(); i++) {
-            System.out.println("[" + (i + 1) + "] " + ordreliste.get(i));
-        }
-
-    }
-
+    //funktioner
     public void funktioner(Ordrearkiv ordrearkiv, Menu menu) {
 
         //print funktioner
@@ -71,7 +67,7 @@ public class Ordreliste {
                 }
             }
             else if (svar == 5){
-                //bryder løkken og vender direkte tilbage til mainFunktioner
+                //bryder løkken og vender direkte tilbage til funktioner
                 korrektSvar = true;
             }
             else if(svar <= 0 || svar > 5) {
@@ -82,10 +78,10 @@ public class Ordreliste {
 
     }
 
-    public void tilfoejOrdre(Menu menu) {
+    private void tilfoejOrdre(Menu menu) {
 
         //find pizza
-        System.out.println("Pizza #:");
+        System.out.println("Pizzaens nummer:");
 
         //init pizzaNummer variable
         int pizzaNummer = 0;
@@ -175,13 +171,13 @@ public class Ordreliste {
         System.out.println("[Ordren er tilføjet]");
 
         //sortérer listen.
-        ordreliste.sort((o1,o2) -> o1.getLocalTime().compareTo(o2.getLocalTime()));
+        ordreliste.sort(Comparator.comparing(Ordrelinje::getLocalTime));
 
         //just for zeh lookz...
         System.out.println();
     }
 
-    public void afslutOrdre(Ordrearkiv ordrearkiv){ //mangler at gemme ordre i arkiv.
+    private void afslutOrdre(Ordrearkiv ordrearkiv){ //mangler at gemme ordre i arkiv.
 
         boolean korrektSvar = false;
         print();
@@ -243,7 +239,7 @@ public class Ordreliste {
         }
     }
 
-    public void annullerOrdre(){
+    private void annullerOrdre(){
         print();
         boolean korrektSvar = false;
         System.out.println("Hvilket nummer i køen har ordren, du ønsker at annullere?");
@@ -266,7 +262,7 @@ public class Ordreliste {
         }
     }
 
-    //Scannerfunktion
+    //utility
     public String tlfnummerScan(){
         boolean korrektSvar = false;
         String kundensTlfnummer = "";
@@ -282,6 +278,7 @@ public class Ordreliste {
         }
         return kundensTlfnummer;
     }
+
     public String afhentningstidspunktScan(){
         boolean korrektSvar = false;
         String afhentningstidspunkt = "";
@@ -325,5 +322,12 @@ public class Ordreliste {
             }
         }
         return afhentningstidspunkt;
+    }
+
+    public void print(){
+        for (int i = 0; i < ordreliste.size(); i++) {
+            System.out.println("[" + (i + 1) + "] " + ordreliste.get(i));
+        }
+
     }
 }

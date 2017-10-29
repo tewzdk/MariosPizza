@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-    public ArrayList<Pizza> menuArrayList = new ArrayList<>();
+    ArrayList<Pizza> menuArrayList = new ArrayList<>();
 
+    //constructor
     public Menu () {
     }
 
+    //funktioner
     public void funktioner(Ordrearkiv ordrearkiv){
         System.out.println("Hvilken funktion ønsker du at benytte?");
         System.out.println("1. Se menukort");
@@ -29,7 +31,7 @@ public class Menu {
                 korrektSvar = true;
             }
             else if(svar == 2){
-                tilføjNyPizza();
+                tilfoejNyPizza();
                 korrektSvar = true;
             }
             else if(svar == 3){
@@ -49,7 +51,7 @@ public class Menu {
         }
     }
 
-    public void tilføjNyPizza(){
+    private void tilfoejNyPizza(){
         int pizzaNummer = menuArrayList.size() + 1;
         System.out.println("Hvad skal pizzaen hedde?");
         String pizzaNavn = Main.in.next();
@@ -63,7 +65,7 @@ public class Menu {
         System.out.println("[En ny pizza er oprettet og gemt]");
     }
 
-    public void redigerPizza(Ordrearkiv ordrearkiv){
+    private void redigerPizza(Ordrearkiv ordrearkiv){
         //init bools
         boolean korrektSvar = false;
         boolean korrektSvar2 = false;
@@ -119,7 +121,6 @@ public class Menu {
                         System.out.println("[Prisen er ændret til "
                                 + menuArrayList.get(pizzaNummer-1).getPizzaPris() + ",-]");
                         gemMenu();
-                        System.out.println();
                         if (ordrearkiv.ordrearkivListe[pizzaNummer -1] != 0){
                             checkOmPizzaDataReboot(pizzaNummer, ordrearkiv);
                         }
@@ -144,7 +145,7 @@ public class Menu {
         }
     }
 
-    public void fjernPizza(Ordrearkiv ordrearkiv){
+    private void fjernPizza(Ordrearkiv ordrearkiv){
         boolean korrektSvar = false;
         boolean korrektSvar2 = false;
 
@@ -201,7 +202,8 @@ public class Menu {
         }
     }
 
-    public void gemMenu(){
+    //utility
+    private void gemMenu(){
         try {
             PrintWriter outputStream = new PrintWriter(new File("menu.txt"));
             for (int i = 0; i < menuArrayList.size(); i++) {
@@ -243,30 +245,30 @@ public class Menu {
         scanner.close();
     }
 
-    public void print(){
+    private void print(){
         for (int i = 0; i < menuArrayList.size(); i++) {
             System.out.println(menuArrayList.get(i));
 
         }
     }
 
-    public void checkOmPizzaDataReboot(int pizzaNummer, Ordrearkiv ordrearkiv){
-        boolean korrektSvar3 = false;
+    private void checkOmPizzaDataReboot(int pizzaNummer, Ordrearkiv ordrearkiv){
+        boolean korrektSvar = false;
         if(ordrearkiv.ordrearkivListe[pizzaNummer-1] > 0){
-            System.out.println("Ønsker du at genstarte statistiken for denne pizza?");
+            System.out.println("Ønsker du at genstarte statistikken for denne pizza?");
             System.out.println("1. Ja");
             System.out.println("2. Nej");
-            while(!korrektSvar3){
-                int svar2 = Main.intSvar();
-                if(svar2 == 1){
+            while(!korrektSvar){
+                int svar = Main.intSvar();
+                if(svar == 1){
                     ordrearkiv.ordrearkivListe[pizzaNummer-1] = 0;
-                    korrektSvar3 = true;
+                    korrektSvar = true;
                 }
-                else if(svar2 == 2){
-                    korrektSvar3 = true;
+                else if(svar == 2){
+                    korrektSvar = true;
                 }
                 else{
-                    System.out.println("Det indtastede valg (" + svar2 + ") eksisterer ikke.");
+                    System.out.println("Det indtastede valg (" + svar + ") eksisterer ikke.");
                 }
             }
         }

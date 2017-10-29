@@ -12,6 +12,7 @@ public class Main {
     private static boolean programmetAfsluttes = false;
 
     public static void main(String[] args) {
+
         //init instances af classes
         Ordreliste ordreliste = new Ordreliste();
         Ordrearkiv ordrearkiv = new Ordrearkiv();
@@ -21,13 +22,14 @@ public class Main {
         ordrearkiv.laesData();
         menu.laesMenu();
 
-        //kør program
+        //kør program - hele programmet afvikles fra "Main.funktioner"
         while(!programmetAfsluttes){
-            mainFunktioner(ordreliste, ordrearkiv, menu);
+            funktioner(ordreliste, ordrearkiv, menu);
         }
     }
 
-    public static void mainFunktioner(Ordreliste ordreliste, Ordrearkiv ordrearkiv, Menu menu) {
+    //funktioner
+    public static void funktioner(Ordreliste ordreliste, Ordrearkiv ordrearkiv, Menu menu) {
         //print mainMenu
         System.out.println("Hvad ønsker du at gøre?");
         System.out.println("1. Administrer ordre");
@@ -68,7 +70,15 @@ public class Main {
         }
     }
 
-    public static int intSvar(){ //undgår exceptions, når brugeren indtaster forkert værdi
+    public static void afslutProgram(){ //lukker scanneren og sætter "programmetAfsluttes".
+        System.out.println();
+        System.out.println("[Programmet afsluttes]");
+        in.close();
+        programmetAfsluttes = true;
+    }
+
+    //utility
+    public static int intSvar(){ //undgår exceptions, når brugeren indtaster andet end integers.
         int intSvar = -1;
         int n = 0;
         for(int x=0;x<=n;x++) {
@@ -81,12 +91,5 @@ public class Main {
             }
         }
         return intSvar;
-    }
-
-    public static void afslutProgram(){
-        System.out.println();
-        System.out.println("[Programmet afsluttes]");
-        in.close();
-        programmetAfsluttes = true;
     }
 }

@@ -4,6 +4,7 @@ import java.time.LocalTime;
 
 public class Ordrelinje {
 
+    //attributer
     private Pizza pizza = new Pizza();
     public Pizza getPizza() {
         return pizza;
@@ -18,13 +19,13 @@ public class Ordrelinje {
 
     private Kunde kunde = new Kunde();
 
+    //constructor
     public Ordrelinje(Pizza pizza, Kunde kunde, String note, LocalTime localTime){
         this.pizza = pizza;
         this.kunde = kunde;
         this.localTime = localTime;
         this.note = note;
     }
-    //Indeholder Pizza & Kunde, Bestillingstidspunkt, laver Afhentningstidspunkt, note
 
     //override og formatering.
     @Override

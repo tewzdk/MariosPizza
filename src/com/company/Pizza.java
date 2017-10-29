@@ -1,6 +1,8 @@
 package com.company;
 
 public class Pizza {
+
+    //attributer
     private String pizzaNavn;
     public String getPizzaNavn() {
         return pizzaNavn;
@@ -33,8 +35,7 @@ public class Pizza {
         this.pizzaBeskrivelse = pizzaBeskrivelse;
     }
 
-
-    //overload
+    //constructor (overload)
     public Pizza() {}
 
     public Pizza(String pizzaNavn, int pizzaNummer, int pizzaPris, String pizzaBeskrivelse) {
