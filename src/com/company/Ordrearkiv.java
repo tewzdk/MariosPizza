@@ -102,7 +102,7 @@ public class Ordrearkiv {
         for (int i = 0; i < menu.menuArrayList.size(); i++) {
             samletOmsaetning = menu.menuArrayList.get(i).getPizzaPris() * ordrearkivListe[i] + samletOmsaetning;
         }
-        System.out.println("Der er solgt pizzaer for " + samletOmsaetning + " kr,-");
+        System.out.println("Der er solgt pizzaer for " + samletOmsaetning + " kr.");
         System.out.println();
     }
 
