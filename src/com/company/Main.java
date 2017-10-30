@@ -52,7 +52,6 @@ public class Main {
             } else if (svar == 2) {
                 //print menukortMenu
                 menu.funktioner(ordrearkiv);
-                System.out.println();
                 korrektSvar = true;
 
             } else if (svar == 3) {

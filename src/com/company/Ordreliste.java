@@ -32,10 +32,17 @@ public class Ordreliste {
             int svar = Main.intSvar();
 
             if (svar == 1) {
-                System.out.println();
-                print();
-                korrektSvar = true;
+                if(ordreliste.isEmpty() == true){
+                    System.out.println("Der er ikke nogen ordre.");
+                    System.out.println();
+                    korrektSvar = true;
 
+                }
+                else {
+                    System.out.println();
+                    print();
+                    korrektSvar = true;
+                }
             }
             else if (svar == 2){
                 tilfoejOrdre(menu);
@@ -111,7 +118,7 @@ public class Ordreliste {
 
                     korrektSvar = true;/////////
 
-                } else if (pizzaNummer > menu.menuArrayList.size()) {
+                } else if (pizzaNummer > menu.menuArrayList.size() || pizzaNummer <= 0) {
                     System.out.println("Pizza #" + pizzaNummer + " eksisterer ikke.");
                 }
             }
