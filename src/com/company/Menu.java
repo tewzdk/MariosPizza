@@ -56,7 +56,17 @@ public class Menu {
         System.out.println("Hvad skal pizzaen hedde?");
         String pizzaNavn = Main.in.next();
         System.out.println("Hvad skal pizzaen koste?");
-        int pizzaPris = Main.intSvar();
+        boolean korrektSvar = false;
+        int pizzaPris = 0;
+        while(!korrektSvar) {
+            pizzaPris = Main.intSvar();
+            if(pizzaPris >= 0){
+                korrektSvar = true;
+            }
+            else{
+                System.out.println("Indtast en korrekt pris.");
+            }
+        }
         System.out.println("Hvad skal pizzaen indeholde?");
         String pizzaBeskrivelse = Main.in.next();
         Pizza pizza = new Pizza(pizzaNavn, pizzaNummer, pizzaPris, pizzaBeskrivelse);
@@ -121,6 +131,7 @@ public class Menu {
                         System.out.println("[Prisen er ændret til "
                                 + menuArrayList.get(pizzaNummer-1).getPizzaPris() + ",-]");
                         gemMenu();
+                        System.out.println();
                         if (ordrearkiv.ordrearkivListe[pizzaNummer -1] != 0){
                             checkOmPizzaDataReboot(pizzaNummer, ordrearkiv);
                         }
