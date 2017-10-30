@@ -15,7 +15,9 @@
 
 
 hs_eer_pid*
-.idea
 *.iws
 .DS_Store
 out/
+
+
+\.idea/workspace\.xml
